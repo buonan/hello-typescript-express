@@ -2,7 +2,7 @@ import App from './server';
 import UserController from './controllers/users.controller';
 import PostController from './controllers/posts.controller';
 
-const PORT = process.env.PORT || 5000;
+export const PORT = process.env.PORT || 3000;
 
 const app = new App(
   [
