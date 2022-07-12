@@ -6,7 +6,7 @@ describe('controller tests', () => {
         server = require('../../index');
     });
     afterAll(async () => {
-        
+        server.close();
     });
     test('server health test', async () => {
         const response = await fetch(`http://localhost:${server.PORT}/health`, { method: 'GET' });

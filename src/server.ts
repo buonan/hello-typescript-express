@@ -1,7 +1,9 @@
 import express from 'express';
+import * as http from 'http';
 
 class App {
     public app: express.Application;
+    public server: http.Server|undefined;
     public port: number;
 
     constructor(controllers: any[], port: number) {
@@ -32,8 +34,8 @@ class App {
         next();
     }
 
-    public listen() {
-        this.app.listen(this.port, () => {
+    public async listen() {
+        this.server = await this.app.listen(this.port, () => {
             console.log(`App listening on the port ${this.port}`);
         });
     }
@@ -41,6 +43,7 @@ class App {
     public close() {
         // cleanup tasks
         console.log(`App close`)
+        this.server?.close();
     }
 }
 

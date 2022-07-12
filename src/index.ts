@@ -11,6 +11,9 @@ const app = new App(
   ],
   +PORT,
 );
+
+export const close = () => {
+  app.close();
+}
+
 app.listen();
-
-
